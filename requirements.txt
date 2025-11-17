@@ -16,7 +16,6 @@ requests
 ocrmypdf
 genanki
 youtube-transcript-api
-tqdm
 pydub
 ebooklib
 streamlit
