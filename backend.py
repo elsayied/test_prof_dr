@@ -85,7 +85,7 @@ def extract_pdf_content(path, ocr=False, start_range: int  = 0, end_range: int =
         mupdf_doc = pymupdf.open(path) if (ocr or divide_by_chapter) else None
         # QUESTION should i even consider recourising here
         
-        for i, page in enumerate(tqdm(plum_doc.pages, desc=f"Processing PDF: {os.path.basename(path)}")):
+        for i, page in enumerate((plum_doc.pages):
             # Skip pages outside the desired range.
             # Note: end_range is exclusive, so the range is [start_range, end_range).
             
@@ -133,7 +133,7 @@ def extract_docx_content(file_path: str):
 
     try:
         doc = Document(file_path)
-        for para in tqdm(doc.paragraphs, desc=f"Processing DOCX: {os.path.basename(file_path)}"):
+        for para in (doc.paragraphs):
             text_content += para.text + "\n"
     except Exception as e:
         print(f"Error processing DOCX file '{file_path}': {e}")
@@ -152,7 +152,7 @@ def extract_pptx_content(file_path: str, ocr: bool = True,
     try:
         prs = Presentation(file_path)
         
-        for i, slide in enumerate(tqdm(prs.slides, desc=f"Processing PPTX: {os.path.basename(file_path)}")):
+        for i, slide in enumerate((prs.slides):
             if i < start_range or (end_range != -1 and i >= end_range):
                 continue
             slide_text = ""
@@ -700,7 +700,7 @@ def generate_audio_kokoro(script: str, output_filename: str,
         print("Generating Kokoro Audio in Audiobook Mode (Offline)...")
         # For audiobooks, process text page by page (split by '---').
         script_sections = script.split('---')
-        for section in tqdm(script_sections, desc="Generating Audiobook Audio"):
+        for section in script_sections:
             if not section.strip():
                 continue
             try:
@@ -719,7 +719,7 @@ def generate_audio_kokoro(script: str, output_filename: str,
         print("Generating Kokoro Audio in 2-Speaker Mode (Offline)...")
         script_lines = script.strip().split('\n')
         current_speaker_voice = voice1
-        for line in tqdm(script_lines, desc="Generating Kokoro Audio (2 Speakers)"):
+        for line in script_lines:
             if not line.strip():
                 continue
             
@@ -750,7 +750,7 @@ def generate_audio_kokoro(script: str, output_filename: str,
         print("Generating Kokoro Audio in Single Speaker Mode (Offline)...")
         # For single-speaker podcasts, the script is split by paragraph markers.
         script_sections = script.split('---')
-        for section in tqdm(script_sections, desc="Generating Kokoro Audio (Single Speaker)"):
+        for section in script_sections:
             if not section.strip():
                 continue
             try:
@@ -840,7 +840,7 @@ def generate_audio_elevenlabs(script: str, api_key: str, output_filename: str, v
 
         print("Generating in 2-Speaker Mode...")
 
-        for line in tqdm(script_lines, desc="Generating ElevenLabs Audio (2 Speakers)"):
+        for line in script_lines:
 
             voice_id = None
 
@@ -1065,7 +1065,7 @@ def generate_audio_gemini(script: str, output_filename: str,
         # Split by paragraph and process one by one to avoid token limits
         script_sections = script.split('---') 
         
-        for section in tqdm(script_sections, desc="Generating Gemini TTS Audio (Single Speaker)"):
+        for section in script_sections:
             clean_text = section.strip()
             if not clean_text:
                 continue
@@ -1163,7 +1163,7 @@ def convert_to_epub(file_path: str, output_path: str, ocr_enabled: bool, page_ra
 
 
 
-        for i in tqdm(pages_to_process, desc="Converting PDF to EPUB"):
+        for i in pages_to_process:
 
             page = doc.load_page(i)
 
@@ -1227,7 +1227,7 @@ def convert_to_epub(file_path: str, output_path: str, ocr_enabled: bool, page_ra
 
     elif file_path.lower().endswith('.pptx'):
         prs = Presentation(file_path)
-        for i, slide in enumerate(tqdm(prs.slides, desc="Converting PPTX to EPUB")):
+        for i, slide in enumerate(prs.slides):
 
             slide_html = ""
 
