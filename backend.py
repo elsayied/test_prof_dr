@@ -1,6 +1,5 @@
 import os
 import time
-from tqdm import tqdm
 import json
 from pprint import pprint
 from pathlib import Path
