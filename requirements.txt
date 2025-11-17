@@ -17,7 +17,6 @@ ocrmypdf
 genanki
 youtube-transcript-api
 tqdm
-tqdm-gui
 pydub
 ebooklib
 streamlit
