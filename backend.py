@@ -4,12 +4,11 @@ from pptx.util import Inches
 from typing import List, Dict
 import re
 import os
-import google.generativeai as genai
-from google.generativeai.errors import APIError
+from google import genai
 
 # --- HARDCODED API KEY (SECURITY WARNING: DO NOT USE IN PUBLIC REPOSITORIES) ---
 # ⚠️ REPLACE THE PLACEHOLDER BELOW WITH YOUR ACTUAL GEMINI API KEY ⚠️
-HARDCODED_GEMINI_API_KEY = "YOUR_HARDCODED_GEMINI_API_KEY_HERE"
+HARDCODED_GEMINI_API_KEY = "AIzaSyA4YsTnbNjl2gKn20EqPa-9nom9yymEwd0"
 # ---
 
 # --- Docling Setup ---
